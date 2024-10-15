@@ -38,7 +38,6 @@ const updateTask = async (updatedTask: Task) => {
     if (!taskExists) {
       throw new TaskNotFoundError()
     }
-    // Update the task directly in the array instead of using axios
     const column = columns.value.find(col => col.tasks.some(task => task.id === updatedTask.id));
     if (column) {
       const taskIndex = column.tasks.findIndex(task => task.id === updatedTask.id);
@@ -54,7 +53,6 @@ const updateTask = async (updatedTask: Task) => {
     }
   }
 }
-// Mock data for initial tasks (replace with your actual data loading logic)
 onMounted(() => {
   addTask({ id: 1, name: 'Task 1', status: 'TO DO' });
   addTask({ id: 2, name: 'Task 2', status: 'IN PROGRESS' });
